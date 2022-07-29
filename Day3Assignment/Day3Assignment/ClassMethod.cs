@@ -10,20 +10,16 @@ namespace Day3Assignment
     {
         const int IS_PART_TIME = 1; 
         const int IS_FULL_TIME = 2; 
-        const int NUM_OF_WORKING_DAYS = 20; 
-        const int EMP_RATE_PER_HOUR = 20; 
-        const int MAX_HRS_IN_MONTH = 100; 
-        public int calculateEmpWage()
+        public void calculateEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             int empHrs; 
-            int totalEmpHrs = 0; 
+            int totalEmpHrs = 0;
             int totalWorkingDays = 0; 
-            int totalEmpWage; 
-            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS) 
+            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) 
             {
-                totalWorkingDays++; 
+                totalWorkingDays++;
                 Random random = new Random();
-                int empCheck = random.Next(0, 3); 
+                int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
                     case IS_FULL_TIME: 
@@ -32,17 +28,16 @@ namespace Day3Assignment
                     case IS_PART_TIME: 
                         empHrs = 4; 
                         break;
-                    default: 
+                    default:
                         empHrs = 0;
                         break;
                 }
-                totalEmpHrs += empHrs; 
-                Console.WriteLine("Day: " + totalWorkingDays + " Emp Hrs: " + empHrs);
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Day: " + totalWorkingDays + " Emp Hrs: " + empHrs); 
             }
-            totalEmpWage = totalEmpHrs * EMP_RATE_PER_HOUR; 
-            return totalEmpWage; 
+            int totalEmpWage = totalEmpHrs * empRatePerHour;
+            Console.WriteLine("Total Wage for company: " + company + " is : " + totalEmpWage);
         }
     }
 }
-    
 
