@@ -6,39 +6,37 @@ using System.Threading.Tasks;
 
 namespace Day3Assignment
 {
-    internal class MultipleCompanies
+    internal class ClassMethod
     {
         const int IS_PART_TIME = 1;
         const int IS_FULL_TIME = 2; 
         public void calculateEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             int empHrs; 
-            int totalEmpHrs = 0; 
+            int totalEmpHrs = 0;
             int totalWorkingDays = 0; 
-            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
+            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays) 
             {
                 totalWorkingDays++; 
-                Random random = new Random();
-                int empCheck = random.Next(0, 3); 
+                Random random = new Random(); 
+                int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
                     case IS_FULL_TIME: 
-                        empHrs = 8;
+                        empHrs = 8; 
                         break;
                     case IS_PART_TIME: 
                         empHrs = 4; 
                         break;
-                    default:
+                    default: 
                         empHrs = 0;
                         break;
                 }
-                totalEmpHrs += empHrs;
+                totalEmpHrs += empHrs; 
                 Console.WriteLine("Day: " + totalWorkingDays + " Emp Hrs: " + empHrs); 
             }
-            int totalEmpWage = totalEmpHrs * empRatePerHour;
+            int totalEmpWage = totalEmpHrs * empRatePerHour; 
             Console.WriteLine("Total Wage for company: " + company + " is : " + totalEmpWage);
         }
     }
 }
-    
-
